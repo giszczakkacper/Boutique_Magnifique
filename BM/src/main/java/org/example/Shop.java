@@ -31,10 +31,15 @@ public class Shop {
 
 	private ArrayList<Client> clientList = new ArrayList<>();;
 
-	public boolean checkCredentialCollision(String username, String email) { // only login and mail are to be avoided for collisions, rest irrelevant
+	public boolean checkLoginCollision(String username) { // only login and mail are to be avoided for collisions, rest irrelevant
 		for(Client client : clientList) {
 			if (client.getCredetials().getUsername().equals(username))
 				return true;
+		}
+		return false;
+	}
+	public boolean checkEmailCollision(String email) { // only login and mail are to be avoided for collisions, rest irrelevant
+		for(Client client : clientList) {
 			if (client.getCredetials().getEmail().equals(email))
 				return true;
 		}
@@ -43,10 +48,11 @@ public class Shop {
 
 
 
-	public void registerClient(Credentials credentials) {
+	public boolean registerClient(Credentials credentials) {
 		int ID = clientList.size();
 		Client createdClient = new Client(ID, credentials);
 		clientList.add(createdClient);
+		return true;
 	}
 
 
