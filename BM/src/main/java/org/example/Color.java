@@ -12,13 +12,13 @@ package org.example;//
 
 
 
-public class Color {
-	public Object CZARNE;
-	public Object BIALE;
-	public Object CZERWONE;
-	public Object ZIELONE;
-	public Object POMARANCZOWE;
-	public Object NIEBIESKIE;
-	public Object FIOLETOWE;
-	public Object BRAZOWE;
+public enum Color {
+	CZARNE,
+	 BIALE,
+	 CZERWONE,
+	 ZIELONE,
+	 POMARANCZOWE,
+	 NIEBIESKIE,
+	 FIOLETOWE,
+	 BRAZOWE
 }

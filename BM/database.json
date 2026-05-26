@@ -1,0 +1,44 @@
+{
+  "inventory": [
+    {
+      "ID": 1,
+      "price": 399.99,
+      "size": 42,
+      "count": 12,
+      "type": "SPORTOWE",
+      "lowstockthreshold": 99999,
+      "discount": 0.0,
+      "color": "CZARNY"
+    },
+    {
+      "ID": 2,
+      "price": 59.90,
+      "size": 40,
+      "count": 3,
+      "type": "KAPCIE",
+      "lowstockthreshold": 99999,
+      "discount": 10.0,
+      "color": "BRAZOWY"
+    },
+    {
+      "ID": 3,
+      "price": 249.00,
+      "size": 39,
+      "count": 15,
+      "type": "TRAMPKI",
+      "lowstockthreshold": 99999,
+      "discount": 0.0,
+      "color": "BIALY"
+    },
+    {
+      "ID": 4,
+      "price": 450.00,
+      "size": 38,
+      "count": 4,
+      "type": "KOZAKI",
+      "lowstockthreshold": 99999,
+      "discount": 50.0,
+      "color": "CZARNY"
+    }
+  ]
+}

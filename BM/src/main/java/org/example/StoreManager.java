@@ -35,9 +35,9 @@ public class StoreManager {
 			if (database == null) {
 				database = new DatabaseSchema();
 			}
-			System.out.println("Baza danych JSON wczytana pomyślnie.");
+			System.out.println("JSON database loaded successfully.");
 		} catch (Exception e) {
-			System.out.println("Nie znaleziono pliku JSON. Tworzę nową, pustą bazę.");
+			System.out.println("JSON file not found. Creating a new, empty database..");
 			database = new DatabaseSchema();
 		}
 	}
@@ -45,9 +45,9 @@ public class StoreManager {
 	private void saveDatabase() {
 		try (FileWriter writer = new FileWriter(DB_FILE_PATH)) {
 			gson.toJson(database, writer);
-			System.out.println("Zmiany zapisane do database.json");
+			System.out.println("Changes saved to database.json");
 		} catch (IOException e) {
-			System.out.println("Błąd zapisu do pliku JSON!");
+			System.out.println("Error writing to JSON file");
 		}
 	}
 
@@ -55,26 +55,26 @@ public class StoreManager {
 		for (Product product : database.inventory) {
 			if (product.getID() == productID) {
 				product.setPrice(price);
-				System.out.println("Zmieniono cenę produktu " + productID + " na " + price);
+				System.out.println("The product price with ID:" + productID + " has been changed to " + price);
 
 				saveDatabase();
 				return;
 			}
 		}
-		System.out.println("Błąd: Nie znaleziono butów o ID " + productID);
+		System.out.println("Error: shoes with ID " + productID + "not found");
 	}
 
 	public void executeManageSales() {
-		System.out.println("Zarządzanie wyprzedażami...");
+		System.out.println("Sales management...");
 	}
 
 	public void executeDeleteAccount(int ID) {
 		boolean removed = database.clients.removeIf(client -> client.getID() == ID);
 		if (removed) {
-			System.out.println("Usunięto konto o ID: " + ID);
+			System.out.println("Account with ID " + ID + "got deleted");
 			saveDatabase();
 		} else {
-			System.out.println("Nie znaleziono klienta o ID " + ID);
+			System.out.println("Account with ID " + ID + "not found");
 		}
 	}
 
@@ -85,11 +85,11 @@ public class StoreManager {
 	}
 
 	public void executeDisplayTransactionData(int ID, ManagerFilter filter) {
-		browser.display("Dane transakcji dla ID: " + ID);
+		browser.display("Transaction data for ID: " + ID);
 	}
 
 	public void executeDisplayAccountData(int ID) {
-		browser.display("Dane konta dla ID: " + ID);
+		browser.display("Account details for ID: " + ID);
 	}
 
 	public void executeBrowseNotifications() {

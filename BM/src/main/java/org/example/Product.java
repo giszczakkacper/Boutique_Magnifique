@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.lang.reflect.Type;
+
 public class Product {
 	private int ID;
 	private float price;
@@ -8,6 +10,7 @@ public class Product {
 	private int count;
 	private Type type;
 	private int lowstockthreshold = 5;
+	private Color color;
 
 	public void setPrice(float price) {
 		this.price = price;
