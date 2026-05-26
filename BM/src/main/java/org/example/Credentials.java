@@ -14,13 +14,11 @@ package org.example;//
 
 public class Credentials {
 	private String username;
-	private String password;
 	private String email;
 	private Address address;
 
-	public Credentials(String username, String password, String email, Address address) {
+	public Credentials(String username, String email, Address address) {
 		this.username = username;
-		this.password = password;
 		this.email = email;
 		this.address = address;
 	}

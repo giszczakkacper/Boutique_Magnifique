@@ -9,6 +9,9 @@ package org.example;//
 //
 //
 
+import java.util.Random;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 
@@ -19,10 +22,14 @@ public class Client {
 	private Integer transactionIDs;
 	private NotificationManager notificationManager;
 	private Browser browser;
+	private String salt;
+	private String passwordHash;
 
-	public Client(int ID, Credentials credentials)
-	{
+	public Client(int ID, String password, Credentials credentials) throws NoSuchAlgorithmException {
 		this.ID = ID;
+		this.salt = generateSalt();
+		password = password + salt;
+		passwordHash = hash(password);
 		this.credentials = credentials;
 	}
 
@@ -98,5 +105,24 @@ public class Client {
 
 	public void setBrowser(Browser browser) {
 		this.browser = browser;
+	}
+
+	private static String generateSalt() {
+		Random random = new Random();
+		StringBuilder salt = new StringBuilder();
+		for (int i = 0; i < 16; i++) {
+			salt.append((char) (random.nextInt(94) + 33));
+		}
+		return salt.toString();
+	}
+
+	static String hash(String input) throws NoSuchAlgorithmException { //SHA-256
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+		byte[] hashed = md.digest(input.getBytes());
+		StringBuilder sb = new StringBuilder();
+		for (byte b : hashed) {
+			sb.append(String.format("%02x", b));
+		}
+		return sb.toString();
 	}
 }

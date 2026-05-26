@@ -48,9 +48,9 @@ public class Shop {
 
 
 
-	public boolean registerClient(Credentials credentials) {
+	public boolean registerClient(String password, Credentials credentials) {
 		int ID = clientList.size();
-		Client createdClient = new Client(ID, credentials);
+		Client createdClient = new Client(ID, password, credentials);
 		clientList.add(createdClient);
 		return true;
 	}

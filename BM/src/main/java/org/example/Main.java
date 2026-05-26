@@ -101,12 +101,18 @@ public class Main {
         if (town == null) return;
         postal = prompt(in, "Type postal: ");
         if (postal == null) return;
-        if (Shop.getInstance().registerClient(new Credentials(login, password, email,
+        if (Shop.getInstance().registerClient(password, new Credentials(login, email,
                 new Address(homeNumber, street, town, postal))))
             System.out.println("User registered successfully!");
         else
             System.out.println("Something went wrong, registration unsuccessful.");
 
+    }
+
+    public static void managerWindow() {
+        System.out.println("Welcome, manager!");
+        System.out.println("Type in a keyword to perform a specific function:" +
+                "");
     }
 
 }
