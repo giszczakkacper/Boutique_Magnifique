@@ -10,9 +10,11 @@ package org.example;//
 //
 
 
-
+import java.util.List;
 
 public class Cart {
-	private CartItem cartItem;
+	private List<CartItem> cartItem;
 	private Float total;
+
+
 }

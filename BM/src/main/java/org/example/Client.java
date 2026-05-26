@@ -9,8 +9,8 @@ package org.example;//
 //
 //
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -18,14 +18,14 @@ import java.security.NoSuchAlgorithmException;
 
 
 public class Client {
-	private Cart cart;
-	private Integer ID;
-	private Credentials credentials;
-	private Integer transactionIDs;
-	private NotificationManager notificationManager;
-	private ArrayList<Transaction> transactionList = new ArrayList<>();
+	private final Cart cart = new Cart();
+	private final Integer ID;
+	private final Credentials credentials;
+	private final List<Integer> transactionIDs = new ArrayList<>();
+	private final NotificationManager notificationManager = new NotificationManager();
+	private final List<Transaction> transactionList = new ArrayList<>();
 	private Browser browser;
-	private String salt;
+	private final String salt;
 	private String passwordHash;
 
 	public Client(int ID, String password, Credentials credentials) throws NoSuchAlgorithmException {
@@ -44,46 +44,56 @@ public class Client {
 		Transaction transaction = transactionList.get(transactionID);
 		boolean returnRequested = transaction.markForReturn();
 		if (returnRequested) Shop.getInstance().notifyManager(
-				LocalDateTime.now(), "Client " + client.getID()
-						+ " requested return for transaction " + transactionID;
+				"Client " + this.getID()
+						+ " requested return for transaction " + transactionID
 		);
-	}
-	
-	public void addToCart(Product product) {
-	
-	}
-	
-	public void changeCredentials() {
-	
-	}
-	
-	public void buyCart() {
-	
-	}
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-
-	public Integer getID() {
-		return ID;
-	}
-
-	public void setID(Integer ID) {
-		this.ID = ID;
 	}
 
 	public Credentials getCredentials() {
 		return credentials;
 	}
 
-	public void setCredentials(Credentials credentials) {
-		this.credentials = credentials;
+	public void changePassword(String oldpassword, String newpassword) throws Exception {
+		if (!hash(oldpassword + salt).equals(passwordHash))
+			throw new Exception("Wrong password");
+		this.passwordHash = hash(newpassword + salt);
 	}
+	public void changeEmail(String password, String newEmail) throws Exception {
+		if (!hash(password + salt).equals(passwordHash))
+			throw new Exception("Wrong password");
+		this.getCredetials().setEmail(newEmail);
+	}
+	public void changeAddress(String password, Integer homeNum, String street, String town, String postal) throws Exception {
+		if (!hash(password + salt).equals(passwordHash))
+			throw new Exception("Wrong password");
+		if (homeNum != null) credentials.getAddress().setHomeNumber(homeNum);
+		if (street != null) credentials.getAddress().setStreet(street);
+		if (town != null) credentials.getAddress().setTown(town);
+		if (postal != null) credentials.getAddress().setPostal(postal);
+    }
+
+
+
+
+
+	public void addToCart(Product product) {
+		cart.addProduct(product);
+	}
+
+
+
+	public void buyCart() {
+	
+	}
+
+
+
+	public Integer getID() {
+		return ID;
+	}
+
+
+
 
 	public Integer getTransactionIDs() {
 		return transactionIDs;

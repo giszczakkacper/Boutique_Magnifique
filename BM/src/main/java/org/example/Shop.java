@@ -52,7 +52,7 @@ public class Shop {
 		return true;
 	}
 
-	public void notifyManagerOfReturn(Transaction t) {
+	public void notifyManager(String message) {
 		Notification n = new Notification(LocalDateTime.now(), "Client " + t.getUserID() +
 				" wants to return transaction " + t.getTransactionID());
 		managersManager.addNotification(n);

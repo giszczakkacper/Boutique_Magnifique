@@ -1,5 +1,6 @@
 package org.example;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -10,7 +11,7 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     static String input;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
 
         NotificationManager nm = new NotificationManager();
         Browser browser = new Browser();
@@ -32,7 +33,13 @@ public class Main {
             input = in.nextLine();
             switch (input) {
                 case "/LOGIN" -> loginWindow();
-                case "/REGISTER" -> registerWindow();
+                case "/REGISTER" -> {
+                    try {
+                        registerWindow();
+                    } catch (NoSuchAlgorithmException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
                 case "/MANAGER" -> managerWindow();
                 case "/QUIT" -> System.exit(0);
             }
@@ -50,15 +57,17 @@ public class Main {
         String input = in.nextLine();
         if (input.toUpperCase().equals("/QUIT")) System.exit(0);
         if (input.toUpperCase().equals("/RETURN")) return null;
-        if (input.charAt(0) == '/') System.out.println("Input started with / and was not a valid keyword." +
-                "/QUIT and /RETURN are always available as keywords." +
-                "/ at the start of an input is usable for keywords only." +
-                "Returning to previous menu.");
-                return null;
+        if (input.charAt(0) == '/') {
+            System.out.println("Input started with / and was not a valid keyword." +
+                    "/QUIT and /RETURN are always available as keywords." +
+                    "/ at the start of an input is usable for keywords only." +
+                    "Returning to previous menu.");
+            return null;
+        }
         return input;
     }
 
-    public static void registerWindow() {
+    public static void registerWindow() throws NoSuchAlgorithmException {
         String login;
         String email;
         while (true) {
@@ -90,7 +99,7 @@ public class Main {
             try {
                 homeNumber = Integer.parseInt(input);
                 if (homeNumber > 0) break;
-                else throw new IllegalArgumentException("bad input");;
+                else throw new IllegalArgumentException("bad input");
             } catch (IllegalArgumentException e) {
                 System.out.println("Home number must be a positive integer.");
             }
@@ -101,11 +110,15 @@ public class Main {
         if (town == null) return;
         postal = prompt(in, "Type postal: ");
         if (postal == null) return;
-        if (Shop.getInstance().registerClient(password, new Credentials(login, email,
-                new Address(homeNumber, street, town, postal))))
-            System.out.println("User registered successfully!");
-        else
-            System.out.println("Something went wrong, registration unsuccessful.");
+        try {
+            if (Shop.getInstance().registerClient(password, new Credentials(login, email,
+                    new Address(homeNumber, street, town, postal))))
+                System.out.println("User registered successfully!");
+            else
+                System.out.println("Something went wrong, registration unsuccessful.");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

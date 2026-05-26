@@ -34,4 +34,8 @@ public class Credentials {
 	public Address getAddress() {
 		return address;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
