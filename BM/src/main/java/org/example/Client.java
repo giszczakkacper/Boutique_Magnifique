@@ -15,12 +15,29 @@ package org.example;//
 public class Client {
 	private Cart cart;
 	private Integer ID;
-	private Credentials credetials;
+	private Credentials credentials;
 	private Integer transactionIDs;
 	private NotificationManager notificationManager;
 	private Browser browser;
+
+	public Client(int ID, Credentials credentials)
+	{
+		this.ID = ID;
+		this.credentials = credentials;
+	}
+
+	public Credentials getCredetials() {
+		return credentials;
+	}
+
+
+
+
+
 	public void returnProduct(Transaction transactionID) {
-	
+
+
+
 	}
 	
 	public void addToCart(Product product) {

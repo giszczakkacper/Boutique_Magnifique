@@ -4,44 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d68dff0d-3a11-49a2-ae2d-20d1331a3743" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Boutique_Magnifique.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Browser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/ClientFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/ClientFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/FilterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/INotificationSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/InAppNotificationSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/ManagerFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/NotificationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/ReturnState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Sale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManagerFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/UsedProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM/target/classes/org/example/Main.class" afterDir="false" />
+    <list default="true" id="d68dff0d-3a11-49a2-ae2d-20d1331a3743" name="Changes" comment="first blood">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManagerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManagerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +31,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "EmZoon2"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EmZoon2&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/giszczakkacper/Boutique_Magnifique.git",
-    "accountId": "b22b0f62-421d-4fac-a01f-34eb5df05a2a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/giszczakkacper/Boutique_Magnifique.git&quot;,
+    &quot;accountId&quot;: &quot;b22b0f62-421d-4fac-a01f-34eb5df05a2a&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -80,66 +50,66 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000001066335533" />
-      <entry key="S2" value="1.0265109889785464" />
-      <entry key="S5" value="1.3495224341385037" />
-      <entry key="S10" value="1.8342053842251151" />
-      <entry key="S30" value="2.6033176286271074" />
-      <entry key="S60" value="3.5547752558824617" />
-      <entry key="M2" value="6.182908813119858" />
-      <entry key="M5" value="12.701808630618583" />
-      <entry key="M10" value="17.908102374680656" />
-      <entry key="M15" value="20.371299638350067" />
-      <entry key="M30" value="23.355924591770574" />
-      <entry key="H1" value="25.085380599762523" />
-      <entry key="H2" value="26.018120225572268" />
-      <entry key="H4" value="26.502728666198383" />
-      <entry key="D1" value="26.91622550742849" />
-      <entry key="W1" value="26.988010054274536" />
+      <entry key="MS500" value="1.0003386223807091" />
+      <entry key="S2" value="1.2287625812916974" />
+      <entry key="S5" value="1.9516701034310753" />
+      <entry key="S10" value="2.876584836967377" />
+      <entry key="S30" value="4.7816237304265385" />
+      <entry key="S60" value="6.365812484387957" />
+      <entry key="M2" value="8.930325934766676" />
+      <entry key="M5" value="17.38918235970012" />
+      <entry key="M10" value="33.54937757984191" />
+      <entry key="M15" value="49.371874129793" />
+      <entry key="M30" value="85.36113401224115" />
+      <entry key="H1" value="121.91488534247301" />
+      <entry key="H2" value="149.29402068258892" />
+      <entry key="H4" value="166.2755458897091" />
+      <entry key="D1" value="182.50139336063307" />
+      <entry key="W1" value="185.49473123075438" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.0245841984322877E-69" />
-      <entry key="S2" value="5.6576608946600955E-18" />
-      <entry key="S5" value="1.2619866635101337E-7" />
-      <entry key="S10" value="3.5524454294697156E-4" />
-      <entry key="S30" value="0.07129309781347552" />
-      <entry key="S60" value="0.2967460402799374" />
-      <entry key="M2" value="0.76423240801147" />
-      <entry key="M5" value="1.696535843030555" />
-      <entry key="M10" value="2.4422914726177396" />
-      <entry key="M15" value="2.825505603048785" />
-      <entry key="M30" value="3.3263118923068546" />
-      <entry key="H1" value="3.6370646481070033" />
-      <entry key="H2" value="3.811335397578065" />
-      <entry key="H4" value="3.9037758057064442" />
-      <entry key="D1" value="3.983691580335814" />
-      <entry key="W1" value="3.9976634765939845" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="9.083285540169347E-150" />
+      <entry key="S5" value="2.417114294405986E-60" />
+      <entry key="S10" value="1.5547071410416787E-30" />
+      <entry key="S30" value="1.1584704014390463E-10" />
+      <entry key="S60" value="1.078840642131055E-5" />
+      <entry key="M2" value="0.003484964224981482" />
+      <entry key="M5" value="0.16170707797832182" />
+      <entry key="M10" value="0.8165282721389198" />
+      <entry key="M15" value="1.586647663369561" />
+      <entry key="M30" value="3.550031878452001" />
+      <entry key="H1" value="5.756962706798504" />
+      <entry key="H2" value="7.518680443484552" />
+      <entry key="H4" value="8.650934542439314" />
+      <entry key="D1" value="9.758193434494133" />
+      <entry key="W1" value="9.965013242039078" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005486112795851551" />
-      <entry key="MS500" value="0.3530636069788327" />
-      <entry key="S2" value="0.7826044441316343" />
-      <entry key="S5" value="1.1496460571836564" />
-      <entry key="S10" value="1.6509248841584763" />
-      <entry key="S30" value="2.561567963835179" />
-      <entry key="S60" value="3.7644954040775884" />
-      <entry key="M2" value="6.872967790529135" />
-      <entry key="M5" value="14.3441726841595" />
-      <entry key="M10" value="20.31454730936577" />
-      <entry key="M15" value="23.170232072360545" />
-      <entry key="M30" value="26.667346095074592" />
-      <entry key="H1" value="28.714537267438956" />
-      <entry key="H2" value="29.825376891424334" />
-      <entry key="H4" value="30.404432693425125" />
-      <entry key="D1" value="30.899567180536643" />
-      <entry key="W1" value="30.985623429747193" />
+      <entry key="MS100" value="1.6953328727085504E-6" />
+      <entry key="MS500" value="0.07038124308890506" />
+      <entry key="S2" value="0.7283235422139381" />
+      <entry key="S5" value="1.6909534402145212" />
+      <entry key="S10" value="2.721268615288168" />
+      <entry key="S30" value="4.711891535546282" />
+      <entry key="S60" value="6.321156613623189" />
+      <entry key="M2" value="8.903935188460624" />
+      <entry key="M5" value="17.52601740726977" />
+      <entry key="M10" value="34.334465611770355" />
+      <entry key="M15" value="50.923440047468304" />
+      <entry key="M30" value="88.87687739009753" />
+      <entry key="H1" value="127.64605598980529" />
+      <entry key="H2" value="156.79654641385105" />
+      <entry key="H4" value="174.91738954517623" />
+      <entry key="D1" value="192.25790994986085" />
+      <entry key="W1" value="195.45950065797493" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3EAp8P4OBAIngXmkwvoLb6halPV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -155,16 +125,17 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
-    "git.auto.fetch.suggestion.counter": "1",
+    "git.auto.fetch.suggestion.counter": "2",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mz/IdeaProjects/Boutique_Magnifique/BM/src/main/java/org/example",
+    "last_opened_file_path": "/home/mz/Downloads/Teastu-main/KodJava",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/mz/IdeaProjects/Boutique_Magnifique/BM/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -179,6 +150,7 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
       </set>
     </attachedChunks>
   </component>
@@ -189,8 +161,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1779631068335</updated>
-      <workItem from="1779631074198" duration="8170000" />
+      <workItem from="1779631074198" duration="10345000" />
+      <workItem from="1779801553538" duration="4925000" />
     </task>
+    <task id="LOCAL-00001" summary="first blood">
+      <option name="closed" value="true" />
+      <created>1779650852658</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779650852658</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,15 +189,23 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first blood" />
+    <option name="LAST_COMMIT_MESSAGE" value="first blood" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BM/src/main/java/org/example/Main.java</url>
-          <line>13</line>
+          <line>30</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

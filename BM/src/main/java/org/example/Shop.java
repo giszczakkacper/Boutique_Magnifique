@@ -10,12 +10,61 @@ package org.example;//
 //
 
 
+import java.util.ArrayList;
 
 
 public class Shop {
+	private static Shop instance = null;
+	private Shop() {};
+	public static Shop getInstance() {
+		if (instance == null)
+			instance = new Shop();
+		Shop.getInstance().registerClient(new Credentials(
+				"user1",
+				"password1",
+				"mail1@service.com",
+				new Address(1, "Główna 1", "Warszawa", "11-111"
+				)));
+		Shop.getInstance
+		return instance;
+	}
+
+	private ArrayList<Client> clientList = new ArrayList<>();;
+
+	public boolean checkCredentialCollision(String username, String email) { // only login and mail are to be avoided for collisions, rest irrelevant
+		for(Client client : clientList) {
+			if (client.getCredetials().getUsername().equals(username))
+				return true;
+			if (client.getCredetials().getEmail().equals(email))
+				return true;
+		}
+		return false;
+	}
+
+
+
+	public void registerClient(Credentials credentials) {
+		int ID = clientList.size();
+		Client createdClient = new Client(ID, credentials);
+		clientList.add(createdClient);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private Product products;
 	private Transaction transactions;
-	private Client client;
 	private Sale saleList;
 	public void setPrice() {
 	

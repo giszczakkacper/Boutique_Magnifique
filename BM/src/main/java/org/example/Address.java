@@ -17,4 +17,43 @@ public class Address {
 	private String street;
 	private String town;
 	private String postal;
+
+	public Address(int homeNumber, String street, String town, String postal) {
+		this.homeNumber = homeNumber;
+		this.street = street;
+		this.town = town;
+		this.postal = postal;
+	}
+
+	public int getHomeNumber() {
+		return homeNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public String getTown() {
+		return town;
+	}
+
+	public String getPostal() {
+		return postal;
+	}
+
+	public void setHomeNumber(int homeNumber) {
+		this.homeNumber = homeNumber;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public void setPostal(String postal) {
+		this.postal = postal;
+	}
 }

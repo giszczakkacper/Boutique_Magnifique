@@ -13,6 +13,10 @@ package org.example;//
 
 
 public class StoreManagerFacade {
+	public void addNewWare () {
+
+	}
+
 	public void setPrice(int productID, float price) {
 	
 	}
