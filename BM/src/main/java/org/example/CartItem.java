@@ -15,4 +15,32 @@ package org.example;//
 public class CartItem {
 	private int productID;
 	private int count;
+
+	public CartItem(int productID, int count) {
+		this.productID = productID;
+		this.count = count;
+	}
+
+	public void adjustToStock(Product product) {
+		if (count > product.getCount()) {
+			count = product.getCount();
+		}
+	}
+
+	public float getWorth(Product product) {
+		adjustToStock(product);
+		return product.getPrice() * count;
+	}
+
+	public int getProductID() {
+		return productID;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 }

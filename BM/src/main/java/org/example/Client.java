@@ -64,6 +64,7 @@ public class Client {
 		this.getCredetials().setEmail(newEmail);
 	}
 	public void changeAddress(String password, Integer homeNum, String street, String town, String postal) throws Exception {
+		//empty fields (assumed to be parsed in "frontend" console are skipped for changing
 		if (!hash(password + salt).equals(passwordHash))
 			throw new Exception("Wrong password");
 		if (homeNum != null) credentials.getAddress().setHomeNumber(homeNum);
@@ -72,12 +73,8 @@ public class Client {
 		if (postal != null) credentials.getAddress().setPostal(postal);
     }
 
-
-
-
-
-	public void addToCart(Product product) {
-		cart.addProduct(product);
+	public void addToCart(int productID, int count) {
+		cart.addProduct(productID, count);
 	}
 
 

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d68dff0d-3a11-49a2-ae2d-20d1331a3743" name="Changes" comment="notificationmanager&#10;ma metody na browsing i usuwanie wiadomości (w tym kilka na raz)&#10;&#10;transakcja po zakodowaniu prośby zwrotu wysyła powiadomienie dla Shop (manager)">
+    <list default="true" id="d68dff0d-3a11-49a2-ae2d-20d1331a3743" name="Changes" comment="client methods for credential changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BM/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/CartItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000114841213028" />
-      <entry key="MS500" value="1.1028062585890581" />
-      <entry key="S2" value="1.5662456630590575" />
-      <entry key="S5" value="1.7967415817913541" />
-      <entry key="S10" value="1.9194461959775573" />
-      <entry key="S30" value="2.906341035115675" />
-      <entry key="S60" value="5.01555782372257" />
-      <entry key="M2" value="9.55314877454363" />
-      <entry key="M5" value="23.12741050912217" />
-      <entry key="M10" value="43.23479934418721" />
-      <entry key="M15" value="63.105667509543345" />
-      <entry key="M30" value="146.30068142317785" />
-      <entry key="H1" value="346.73653118487033" />
-      <entry key="H2" value="620.2479708955709" />
-      <entry key="H4" value="860.73307782538" />
-      <entry key="D1" value="1151.6003978229223" />
-      <entry key="W1" value="1212.4879503233817" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000003715" />
+      <entry key="S2" value="1.0007807213098825" />
+      <entry key="S5" value="1.0584708856575427" />
+      <entry key="S10" value="1.2897868851371468" />
+      <entry key="S30" value="2.5878239263819207" />
+      <entry key="S60" value="4.31085341741173" />
+      <entry key="M2" value="15.701423959616909" />
+      <entry key="M5" value="181.87934405687517" />
+      <entry key="M10" value="574.5723648925508" />
+      <entry key="M15" value="914.2078082437536" />
+      <entry key="M30" value="1574.9488882384937" />
+      <entry key="H1" value="2219.995798285911" />
+      <entry key="H2" value="2830.722586370228" />
+      <entry key="H4" value="3351.9900680661726" />
+      <entry key="D1" value="4024.3996137488043" />
+      <entry key="W1" value="4173.039132689106" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.2723446082295247E-218" />
-      <entry key="MS500" value="3.184010035370968E-44" />
-      <entry key="S2" value="1.4020153985451965E-11" />
-      <entry key="S5" value="5.8160289636818156E-5" />
-      <entry key="S10" value="0.010501696332541957" />
-      <entry key="S30" value="0.4055208215194201" />
-      <entry key="S60" value="1.1589374684160223" />
-      <entry key="M2" value="2.181300673242132" />
-      <entry key="M5" value="4.476266820505141" />
-      <entry key="M10" value="7.391113887819854" />
-      <entry key="M15" value="9.501229615786443" />
-      <entry key="M30" value="14.479560052793412" />
-      <entry key="H1" value="21.94796078913649" />
-      <entry key="H2" value="30.58192239065457" />
-      <entry key="H4" value="37.915425147621875" />
-      <entry key="D1" value="46.80151694513668" />
-      <entry key="W1" value="48.67578537297231" />
+      <entry key="MS100" value="1.5095485149036562E-54" />
+      <entry key="MS500" value="1.7209546061991536E-11" />
+      <entry key="S2" value="0.0020372653641104574" />
+      <entry key="S5" value="0.08699063407287079" />
+      <entry key="S10" value="0.35599842733500153" />
+      <entry key="S30" value="1.3413849096128903" />
+      <entry key="S60" value="2.178933269873112" />
+      <entry key="M2" value="2.9005281849045175" />
+      <entry key="M5" value="3.5356810367000824" />
+      <entry key="M10" value="3.948587522062088" />
+      <entry key="M15" value="4.3195214436320315" />
+      <entry key="M30" value="6.267032080672844" />
+      <entry key="H1" value="12.457522789104303" />
+      <entry key="H2" value="23.55593069858193" />
+      <entry key="H4" value="35.67976072833188" />
+      <entry key="D1" value="53.21971669586786" />
+      <entry key="W1" value="57.28454061903621" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="9.005400733869571E-5" />
-      <entry key="MS500" value="0.21360228727366526" />
-      <entry key="S2" value="1.1195105223226325" />
-      <entry key="S5" value="1.5830988693942625" />
-      <entry key="S10" value="1.8093533241306305" />
-      <entry key="S30" value="3.2031311570973817" />
-      <entry key="S60" value="6.0638383237148075" />
-      <entry key="M2" value="11.640093576775504" />
-      <entry key="M5" value="27.530064274668252" />
-      <entry key="M10" value="50.555281376970946" />
-      <entry key="M15" value="72.52188043196715" />
-      <entry key="M30" value="160.66144049043103" />
-      <entry key="H1" value="368.5659257267915" />
-      <entry key="H2" value="650.7411065535111" />
-      <entry key="H4" value="898.592954304338" />
-      <entry key="D1" value="1198.3905828417364" />
-      <entry key="W1" value="1261.1620570204514" />
+      <entry key="MS100" value="7.227499802162161E-7" />
+      <entry key="MS500" value="0.05912860292099726" />
+      <entry key="S2" value="0.494621387168413" />
+      <entry key="S5" value="0.8697947662127257" />
+      <entry key="S10" value="1.4485698029802134" />
+      <entry key="S30" value="3.7916413317492177" />
+      <entry key="S60" value="6.385804246072822" />
+      <entry key="M2" value="18.532678006583563" />
+      <entry key="M5" value="185.3767935304907" />
+      <entry key="M10" value="578.493986656576" />
+      <entry key="M15" value="918.5041956859397" />
+      <entry key="M30" value="1581.1900123715102" />
+      <entry key="H1" value="2232.408864698255" />
+      <entry key="H2" value="2854.2246756185673" />
+      <entry key="H4" value="3387.6255824704435" />
+      <entry key="D1" value="4077.6078758987137" />
+      <entry key="W1" value="4230.321904315984" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -208,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779819445096</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="client methods for credential changes">
+      <option name="closed" value="true" />
+      <created>1779822265224</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779822265224</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +239,8 @@
     <MESSAGE value="added registration" />
     <MESSAGE value="added password salt" />
     <MESSAGE value="notificationmanager&#10;ma metody na browsing i usuwanie wiadomości (w tym kilka na raz)&#10;&#10;transakcja po zakodowaniu prośby zwrotu wysyła powiadomienie dla Shop (manager)" />
-    <option name="LAST_COMMIT_MESSAGE" value="notificationmanager&#10;ma metody na browsing i usuwanie wiadomości (w tym kilka na raz)&#10;&#10;transakcja po zakodowaniu prośby zwrotu wysyła powiadomienie dla Shop (manager)" />
+    <MESSAGE value="client methods for credential changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="client methods for credential changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

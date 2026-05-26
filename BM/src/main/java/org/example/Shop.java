@@ -13,11 +13,13 @@ package org.example;//
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Shop {
+	private static List<Product> productList = new ArrayList<>();
 	private static Shop instance = null;
-	private static NotificationManager managersManager;
+	private static NotificationManager managersManager = new NotificationManager();
 	private Shop() {};
 	public static Shop getInstance() {
 		if (instance == null) {
@@ -58,21 +60,11 @@ public class Shop {
 		managersManager.addNotification(n);
 	}
 
+	public Product getProduct(int productID) {
+		return products;
+	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-	private Product products;
 	private Transaction transactions;
 	private Sale saleList;
 	public void setPrice() {
