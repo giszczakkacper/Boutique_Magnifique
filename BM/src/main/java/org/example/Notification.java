@@ -10,10 +10,22 @@ package org.example;//
 //
 
 
-
+import java.time.LocalDateTime;
 
 public class Notification {
-	private int sentDate;
-	private int readDate = 0;
+	private LocalDateTime sentDate;
 	private String contents;
+
+    public Notification(LocalDateTime sendDate, String s) {
+    	this.sentDate = sendDate;
+		this.contents = s;
+	}
+
+	public String returnMessageFull() {
+		return "========================\n" +
+				sentDate + "\n" +
+				contents + "\n" +
+				"========================" +
+				"\n";
+	}
 }

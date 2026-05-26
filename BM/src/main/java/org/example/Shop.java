@@ -10,22 +10,19 @@ package org.example;//
 //
 
 
+import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
 public class Shop {
 	private static Shop instance = null;
+	private static NotificationManager managersManager;
 	private Shop() {};
 	public static Shop getInstance() {
-		if (instance == null)
+		if (instance == null) {
 			instance = new Shop();
-		Shop.getInstance().registerClient(new Credentials(
-				"user1",
-				"password1",
-				"mail1@service.com",
-				new Address(1, "Główna 1", "Warszawa", "11-111"
-				)));
-		Shop.getInstance
+		}
 		return instance;
 	}
 
@@ -48,11 +45,17 @@ public class Shop {
 
 
 
-	public boolean registerClient(String password, Credentials credentials) {
+	public boolean registerClient(String password, Credentials credentials) throws NoSuchAlgorithmException {
 		int ID = clientList.size();
 		Client createdClient = new Client(ID, password, credentials);
 		clientList.add(createdClient);
 		return true;
+	}
+
+	public void notifyManagerOfReturn(Transaction t) {
+		Notification n = new Notification(LocalDateTime.now(), "Client " + t.getUserID() +
+				" wants to return transaction " + t.getTransactionID());
+		managersManager.addNotification(n);
 	}
 
 

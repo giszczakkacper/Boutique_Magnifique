@@ -9,6 +9,8 @@ package org.example;//
 //
 //
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Random;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,6 +23,7 @@ public class Client {
 	private Credentials credentials;
 	private Integer transactionIDs;
 	private NotificationManager notificationManager;
+	private ArrayList<Transaction> transactionList = new ArrayList<>();
 	private Browser browser;
 	private String salt;
 	private String passwordHash;
@@ -37,14 +40,13 @@ public class Client {
 		return credentials;
 	}
 
-
-
-
-
-	public void returnProduct(Transaction transactionID) {
-
-
-
+	public void returnProduct(int transactionID) { //uses "local" transaction ID - from the "POV" of the Client
+		Transaction transaction = transactionList.get(transactionID);
+		boolean returnRequested = transaction.markForReturn();
+		if (returnRequested) Shop.getInstance().notifyManager(
+				LocalDateTime.now(), "Client " + client.getID()
+						+ " requested return for transaction " + transactionID;
+		);
 	}
 	
 	public void addToCart(Product product) {

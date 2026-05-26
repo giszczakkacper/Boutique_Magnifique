@@ -19,4 +19,24 @@ public class Transaction {
 	private ReturnState returnedState = ReturnState.NOTATTEMPTED;
 	private LocalDate returnDate;
 	private int userID;
+
+	public boolean markForReturn() {
+		if (returnedState == ReturnState.NOTATTEMPTED) {
+			returnedState = ReturnState.PENDING;
+			return true;
+		}
+		return false;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public int getTransactionID() {
+		return transactionID;
+	}
+
+	public int getProductID() {
+		return productID;
+	}
 }

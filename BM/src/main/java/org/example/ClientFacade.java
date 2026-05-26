@@ -13,6 +13,17 @@ package org.example;//
 
 
 public class ClientFacade {
+	Client client;
+	public ClientFacade(Client client){
+		this.client = client;
+	}
+
+	public void returnProduct(int transactionID) { //uses "local" transaction ID - from the "POV" of the Client
+		client.returnProduct(transactionID);
+	}
+
+
+
 	public int browse(ClientFilter filter) {
 
         return 0;
@@ -25,10 +36,8 @@ public class ClientFacade {
 	public void buyCart() {
 	
 	}
-	
-	public void returnProduct(Transaction transactionID) {
-	
-	}
+
+
 	
 	public void changeCredentials() {
 	

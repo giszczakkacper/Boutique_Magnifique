@@ -1,11 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NotificationManager {
 
-	private List<String> notifications = new ArrayList<>();
+	private List<Notification> notifications = new ArrayList<>();
 
 	public void browseNotifications() {
 		System.out.println("\n=== TWOJE POWIADOMIENIA ===");
@@ -13,14 +14,24 @@ public class NotificationManager {
 		if (notifications.isEmpty()) {
 			System.out.println("Brak nowych powiadomień.");
 		} else {
-			for (String note : notifications) {
-				System.out.println("- " + note);
+			for (Notification note : notifications) {
+				note.returnMessageFull();
 			}
 		}
 		System.out.println("===========================\n");
 	}
 
-	public void addNotification(String message) {
-		notifications.add(message);
+	public void deleteNotifications(int[] ids) {
+		Arrays.sort(ids);
+		for (int i = ids.length - 1; i >= 0; i--) {
+			notifications.remove(ids[i]);
+		}
+	}
+	public void deleteAllNotifications (){
+		notifications.clear();
+	}
+
+	public void addNotification(Notification notification) {
+		notifications.add(notification);
 	}
 }
