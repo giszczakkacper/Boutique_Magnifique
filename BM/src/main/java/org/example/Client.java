@@ -51,4 +51,52 @@ public class Client {
 	public void buyCart() {
 	
 	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public Integer getID() {
+		return ID;
+	}
+
+	public void setID(Integer ID) {
+		this.ID = ID;
+	}
+
+	public Credentials getCredentials() {
+		return credentials;
+	}
+
+	public void setCredentials(Credentials credentials) {
+		this.credentials = credentials;
+	}
+
+	public Integer getTransactionIDs() {
+		return transactionIDs;
+	}
+
+	public void setTransactionIDs(Integer transactionIDs) {
+		this.transactionIDs = transactionIDs;
+	}
+
+	public NotificationManager getNotificationManager() {
+		return notificationManager;
+	}
+
+	public void setNotificationManager(NotificationManager notificationManager) {
+		this.notificationManager = notificationManager;
+	}
+
+	public Browser getBrowser() {
+		return browser;
+	}
+
+	public void setBrowser(Browser browser) {
+		this.browser = browser;
+	}
 }

@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d68dff0d-3a11-49a2-ae2d-20d1331a3743" name="Changes" comment="first blood">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BM/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Credentials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/NotificationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/NotificationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManagerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/BM/src/main/java/org/example/StoreManagerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +38,12 @@
     &quot;assignee&quot;: &quot;EmZoon2&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/giszczakkacper/Boutique_Magnifique.git&quot;,
-    &quot;accountId&quot;: &quot;b22b0f62-421d-4fac-a01f-34eb5df05a2a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/giszczakkacper/Boutique_Magnifique",
+    "accountId": "07a9a3b1-773a-45b0-b585-49bb692ad04a"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -135,7 +136,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/mz/IdeaProjects/Boutique_Magnifique/BM/src/main/java/org/example/Main.java",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -163,6 +164,7 @@
       <updated>1779631068335</updated>
       <workItem from="1779631074198" duration="10345000" />
       <workItem from="1779801553538" duration="4925000" />
+      <workItem from="1779806927368" duration="2519000" />
     </task>
     <task id="LOCAL-00001" summary="first blood">
       <option name="closed" value="true" />
@@ -198,7 +200,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BM/src/main/java/org/example/Main.java</url>
-          <line>30</line>
+          <line>41</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

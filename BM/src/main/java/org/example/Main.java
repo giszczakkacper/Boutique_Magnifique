@@ -8,6 +8,17 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+        NotificationManager nm = new NotificationManager();
+        Browser browser = new Browser();
+        StoreManager manager = new StoreManager(nm, browser);
+
+        StoreManagerFacade facade = new StoreManagerFacade(manager);
+
+        facade.setPrice(1, 499.99f);
+        facade.manageSales();
+        facade.getLowStockProducts();
+
         Scanner in = new Scanner(System.in);
         String input;
         System.out.println("Welcome to Boutique Magnifique!");
