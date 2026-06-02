@@ -15,7 +15,46 @@ import java.time.LocalDate;
 public class Sale {
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private int discountedPrice;
+	private float originalPrice;
+	private float discountedPrice;
 	private boolean currentlyActive = true;
 	private int discountedProductID;
+
+	public LocalDate getStartDate() { return startDate; }
+	public LocalDate getEndDate() { return endDate; }
+	public float getOriginalPrice() { return originalPrice; }
+	public float getDiscountedPrice() { return discountedPrice; }
+	public boolean isCurrentlyActive() { return currentlyActive; }
+	public int getDiscountedProductID() { return discountedProductID; }
+
+	public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+	public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
+	public void setOriginalPrice(float originalPrice) { this.originalPrice = originalPrice; }
+	public void setDiscountedPrice(float discountedPrice) { this.discountedPrice = discountedPrice; }
+	public void setCurrentlyActive(boolean currentlyActive) { this.currentlyActive = currentlyActive; }
+	public void setDiscountedProductID(int discountedProductID) { this.discountedProductID = discountedProductID; }
+
+	public boolean isActiveOn(LocalDate date) {
+		if (!currentlyActive) {
+			return false;
+		}
+		if (date == null) {
+			return true;
+		}
+		if (startDate != null && date.isBefore(startDate)) {
+			return false;
+		}
+		return endDate == null || !date.isAfter(endDate);
+	}
+
+	@Override
+	public String toString() {
+		String endDateText = endDate != null ? endDate.toString() : "open-ended";
+		return "Product ID: " + discountedProductID +
+				" | Original price: " + String.format("%.2f", originalPrice) + " PLN" +
+				" | Discounted price: " + String.format("%.2f", discountedPrice) + " PLN" +
+				" | Start date: " + startDate +
+				" | End date: " + endDateText +
+				" | Active: " + currentlyActive;
+	}
 }

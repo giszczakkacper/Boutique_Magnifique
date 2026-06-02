@@ -29,7 +29,7 @@ public class CartItem {
 
 	public float getWorth(Product product) {
 		adjustToStock(product);
-		return product.getPrice() * count;
+		return product.getEffectivePrice() * count;
 	}
 
 	public int getProductID() {

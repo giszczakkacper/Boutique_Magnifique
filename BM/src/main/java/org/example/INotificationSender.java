@@ -12,8 +12,6 @@ package org.example;//
 
 
 
-public class INotificationSender {
-	public void send(Notification n) {
-	
-	}
+public interface INotificationSender {
+	void send(Notification n);
 }

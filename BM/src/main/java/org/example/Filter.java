@@ -7,17 +7,30 @@ package org.example;//
 //  @ Date : 24.05.2026
 //  @ Author : 
 //
-//
-
-
 
 
 public class Filter {
 	private boolean isOnSale;
-	private float lowerBracket;
-	private float upperBracket;
+	private float lowerBracket = 0f;
+	private float upperBracket = Float.MAX_VALUE;
 	private boolean displaySecondHand;
-	private int smallestSize;
-	private int biggestSize;
+	private int smallestSize = 0;
+	private int biggestSize = Integer.MAX_VALUE;
 	private Color allowedColors;
+
+	public boolean isOnSale() { return isOnSale; }
+	public float getLowerBracket() { return lowerBracket; }
+	public float getUpperBracket() { return upperBracket; }
+	public boolean isDisplaySecondHand() { return displaySecondHand; }
+	public int getSmallestSize() { return smallestSize; }
+	public int getBiggestSize() { return biggestSize; }
+	public Color getAllowedColors() { return allowedColors; }
+
+	public void setOnSale(boolean onSale) { isOnSale = onSale; }
+	public void setLowerBracket(float v) { lowerBracket = v; }
+	public void setUpperBracket(float v) { upperBracket = v; }
+	public void setDisplaySecondHand(boolean v) { displaySecondHand = v; }
+	public void setSmallestSize(int v) { smallestSize = v; }
+	public void setBiggestSize(int v) { biggestSize = v; }
+	public void setAllowedColors(Color c) { allowedColors = c; }
 }

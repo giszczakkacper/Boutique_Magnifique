@@ -1,37 +1,46 @@
 package org.example;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class NotificationManager {
+
+public class NotificationManager implements INotificationSender {
 
 	private List<Notification> notifications = new ArrayList<>();
 
-	public void browseNotifications() {
-		System.out.println("\n=== TWOJE POWIADOMIENIA ===");
+	public List<Notification> getNotifications() {
+		if (notifications == null) {
+			notifications = new ArrayList<>();
+		}
+		return notifications;
+	}
 
-		if (notifications.isEmpty()) {
-			System.out.println("Brak nowych powiadomień.");
+	public void browseNotifications() {
+		System.out.println("\n=== NOTIFICATIONS ===");
+		if (getNotifications().isEmpty()) {
+			System.out.println("No new notifications.");
 		} else {
-			for (Notification note : notifications) {
-				note.returnMessageFull();
+			for (Notification note : getNotifications()) {
+				note.markAsRead();
+				System.out.print(note.returnMessageFull());
 			}
 		}
-		System.out.println("===========================\n");
+		System.out.println("====================\n");
 	}
 
-	public void deleteNotifications(int[] ids) {
-		Arrays.sort(ids);
-		for (int i = ids.length - 1; i >= 0; i--) {
-			notifications.remove(ids[i]);
+	public void addNotification(Notification n) {
+		if (n != null) {
+			getNotifications().add(n);
 		}
 	}
-	public void deleteAllNotifications (){
-		notifications.clear();
+
+	public void addNotification(String message) {
+		getNotifications().add(new Notification(LocalDateTime.now(), message));
 	}
 
-	public void addNotification(Notification notification) {
-		notifications.add(notification);
+	@Override
+	public void send(Notification notification) {
+		addNotification(notification);
 	}
 }

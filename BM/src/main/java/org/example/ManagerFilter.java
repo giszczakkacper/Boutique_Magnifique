@@ -10,15 +10,9 @@ package org.example;//
 //
 
 
-
-
 public class ManagerFilter extends Filter {
-	private boolean isOnSale;
-	private float lowerBracket;
-	private float upperBracket;
-	private boolean displaySecondHand;
-	private int smallestSize;
-	private int biggestSize;
-	private Color allowedColors;
-	private int lowstockthreshold;
+	private int lowstockthreshold = 0;
+
+	public int getLowstockthreshold() { return lowstockthreshold; }
+	public void setLowstockthreshold(int v) { this.lowstockthreshold = v; }
 }
