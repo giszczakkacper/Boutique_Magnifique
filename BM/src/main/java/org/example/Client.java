@@ -14,7 +14,6 @@ public class Client {
 	private Credentials credentials;
 	private NotificationManager notificationManager;
 	private List<Transaction> transactionList = new ArrayList<>();
-	private transient Browser browser;
 	private String salt;
 	private String passwordHash;
 
@@ -31,12 +30,16 @@ public class Client {
 		this.credentials = credentials;
 	}
 
-	public Credentials getCredetials() {
-		return credentials;
-	}
-
 	public void returnProduct(int transactionID) {
-		Transaction transaction = findTransactionById(transactionID);
+		Transaction transaction = null;
+		if (transactionList != null) {
+			for (Transaction candidate : transactionList) {
+				if (candidate.getTransactionID() == transactionID) {
+					transaction = candidate;
+					break;
+				}
+			}
+		}
 		if (transaction == null) {
 			System.out.println("Invalid transaction ID.");
 			return;
@@ -100,23 +103,22 @@ public class Client {
 			Product product = Shop.getInstance().getProduct(item.getProductID());
 			if (product == null) continue;
 
-			for (int i = 0; i < item.getCount(); i++) {
-				Transaction t = new Transaction(
-						Shop.getInstance().nextTransactionID(),
-						LocalDateTime.now().toLocalDate(),
-						item.getProductID(),
-						this.ID
-				);
-				Shop.getInstance().addTransaction(t);
-				transactionList.add(t);
-			}
+			Transaction t = new Transaction(
+					Shop.getInstance().nextTransactionID(),
+					LocalDateTime.now().toLocalDate(),
+					item.getProductID(),
+					this.ID,
+					item.getCount()
+			);
+			Shop.getInstance().addTransaction(t);
+			transactionList.add(t);
 
 			product.decreaseCount(item.getCount());
 		}
 
 		cart.emptyCart();
 		System.out.println("Purchase completed successfully! Total amount: " + String.format("%.2f", total) + " PLN");
-		System.out.println("Number of transactions: " + snapshot.stream().mapToInt(CartItem::getCount).sum());
+		System.out.println("Number of transactions: " + snapshot.size());
 
 		new InAppNotificationSender(this).send(
 				new Notification(LocalDateTime.now(), "Your purchase worth " + String.format("%.2f", total) + " PLN has been completed.")
@@ -191,46 +193,8 @@ public class Client {
 	public void setCredentials(Credentials credentials) { this.credentials = credentials; }
 	public NotificationManager getNotificationManager() { return notificationManager; }
 	public void setNotificationManager(NotificationManager notificationManager) { this.notificationManager = notificationManager; }
-	public Browser getBrowser() { return browser; }
-	public void setBrowser(Browser browser) { this.browser = browser; }
 	public List<Transaction> getTransactionList() { return transactionList; }
 	public void setTransactionList(List<Transaction> transactionList) { this.transactionList = transactionList; }
-
-	public List<Integer> getTransactionIDs() {
-		List<Integer> transactionIDs = new ArrayList<>();
-		if (transactionList == null) {
-			return transactionIDs;
-		}
-		for (Transaction transaction : transactionList) {
-			transactionIDs.add(transaction.getTransactionID());
-		}
-		return transactionIDs;
-	}
-
-	public void setTransactionIDs(List<Integer> transactionIDs) {
-		List<Transaction> resolvedTransactions = new ArrayList<>();
-		if (transactionIDs != null) {
-			for (Integer transactionID : transactionIDs) {
-				Transaction transaction = Shop.getInstance().getTransaction(transactionID);
-				if (transaction != null) {
-					resolvedTransactions.add(transaction);
-				}
-			}
-		}
-		this.transactionList = resolvedTransactions;
-	}
-
-	private Transaction findTransactionById(int transactionID) {
-		if (transactionList == null) {
-			return null;
-		}
-		for (Transaction transaction : transactionList) {
-			if (transaction.getTransactionID() == transactionID) {
-				return transaction;
-			}
-		}
-		return null;
-	}
 
 	private static String generateSalt() {
 		Random random = new Random();

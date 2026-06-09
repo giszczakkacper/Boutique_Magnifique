@@ -19,7 +19,7 @@ public class ClientFacade {
 	}
 
 	public void browse(ClientFilter filter) {
-		browser.browseAndDisplay(filter);
+		browser.browse(filter);
 	}
 
 	public void addToCart(int productID, int count) {

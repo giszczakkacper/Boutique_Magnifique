@@ -2,7 +2,6 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
@@ -24,10 +23,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class StoreManager {
-	private NotificationManager notificationManager;
 	private Browser browser;
-
-	private final String DB_FILE_NAME = "database.json";
 	private final Gson gson = new GsonBuilder()
 			.setPrettyPrinting()
 			.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context) ->
@@ -48,8 +44,7 @@ public class StoreManager {
 		public List<Sale> sales = new ArrayList<>();
 	}
 
-	public StoreManager(NotificationManager notificationManager, Browser browser) {
-		this.notificationManager = notificationManager;
+	public StoreManager(Browser browser) {
 		this.browser = browser;
 		this.dbFilePath = resolveDatabasePath();
 		loadDatabase();
@@ -100,7 +95,7 @@ public class StoreManager {
 		}
 	}
 
-	public void executeSetPrice(int productID, float price) {
+	public void setPrice(int productID, float price) {
 		Product product = Shop.getInstance().getProduct(productID);
 		if (product != null) {
 			Shop.getInstance().setPrice(productID, price);
@@ -111,19 +106,7 @@ public class StoreManager {
 		System.out.println("Error: product with ID " + productID + " not found.");
 	}
 
-	public void setPrice(int productID, float price) {
-		executeSetPrice(productID, price);
-	}
-
-	public void executeBrowseProducts(ManagerFilter filter) {
-		browser.browseAndDisplay(filter);
-	}
-
-	public void browseProducts(ManagerFilter filter) {
-		executeBrowseProducts(filter);
-	}
-
-	public void executeManageSales() {
+	public void manageSales() {
 		Scanner in = new Scanner(System.in);
 		while (true) {
 			System.out.println("Sales management...");
@@ -144,11 +127,7 @@ public class StoreManager {
 		}
 	}
 
-	public void manageSales() {
-		executeManageSales();
-	}
-
-	public void executeManageReturns() {
+	public void manageReturns() {
 		Scanner in = new Scanner(System.in);
 		while (true) {
 			System.out.println("Type:\n/LIST to display pending returns\n" +
@@ -168,11 +147,7 @@ public class StoreManager {
 		}
 	}
 
-	public void manageReturns() {
-		executeManageReturns();
-	}
-
-	public void executeDeleteAccount(int ID) {
+	public void deleteAccount(int ID) {
 		boolean removed = Shop.getInstance().deleteAccount(ID);
 		if (removed) {
 			saveDatabase();
@@ -182,20 +157,16 @@ public class StoreManager {
 		}
 	}
 
-	public void deleteAccount(int ID) {
-		executeDeleteAccount(ID);
-	}
-
-	public List<Product> fetchLowStockProducts() {
+	public List<Product> getLowStockProducts() {
 		return database.inventory.stream()
 				.filter(shoe -> shoe.getCount() <= shoe.getLowstockthreshold())
 				.collect(Collectors.toList());
 	}
 
-	public void executeDisplayTransactionData(int ID, ManagerFilter filter) {
+	public void displayTransactionData(int ID, Filter filter) {
 		Transaction transaction = Shop.getInstance().getTransaction(ID);
 		if (transaction == null) {
-			browser.display("No transaction found for ID: " + ID);
+			System.out.println("No transaction found for ID: " + ID);
 			return;
 		}
 
@@ -214,17 +185,13 @@ public class StoreManager {
 					.append(" (ID: ").append(client.getID()).append(")\n");
 		}
 
-		browser.display(builder.toString().trim());
+		System.out.println(builder.toString().trim());
 	}
 
-	public void displayTransactionData(int ID, ManagerFilter filter) {
-		executeDisplayTransactionData(ID, filter);
-	}
-
-	public void executeDisplayAccountData(int ID) {
+	public void displayAccountData(int ID) {
 		Client client = Shop.getInstance().getClientByID(ID);
 		if (client == null) {
-			browser.display("No account found with ID: " + ID);
+			System.out.println("No account found with ID: " + ID);
 			return;
 		}
 
@@ -252,15 +219,7 @@ public class StoreManager {
 			}
 		}
 
-		browser.display(builder.toString().trim());
-	}
-
-	public void displayAccountData(int ID) {
-		executeDisplayAccountData(ID);
-	}
-
-	public void executeBrowseNotifications() {
-		Shop.getInstance().getManagersNotificationManager().browseNotifications();
+		System.out.println(builder.toString().trim());
 	}
 
 	private void displaySales() {
@@ -371,7 +330,7 @@ public class StoreManager {
 		if (approve) {
 			Product product = Shop.getInstance().getProduct(transaction.getProductID());
 			if (product != null) {
-				product.increaseCount(1);
+				product.increaseCount(transaction.getQuantity());
 			}
 		}
 
@@ -471,9 +430,6 @@ public class StoreManager {
 			}
 			if (client.getNotificationManager() == null) {
 				client.setNotificationManager(new NotificationManager());
-			}
-			if (client.getBrowser() == null) {
-				client.setBrowser(new Browser());
 			}
 			if (client.getTransactionList() == null) {
 				client.setTransactionList(new ArrayList<>());

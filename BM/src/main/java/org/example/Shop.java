@@ -24,17 +24,11 @@ public class Shop {
 
 	public void setProductList(List<Product> products) { this.productList = new ArrayList<>(products); }
 	public List<Product> getProductList() { return productList; }
-	public List<Product> getProducts() { return getProductList(); }
-	public void setProducts(List<Product> products) { setProductList(products); }
 	public void setClientList(List<Client> clients) { this.clientList = new ArrayList<>(clients); }
 	public ArrayList<Client> getClientList() { return clientList; }
-	public ArrayList<Client> getClients() { return getClientList(); }
-	public void setClients(List<Client> clients) { setClientList(clients); }
 	public ArrayList<Transaction> getTransactions() { return transactions; }
 	public ArrayList<Sale> getSaleList() { return saleList; }
 	public void setSaleList(List<Sale> sales) { this.saleList = new ArrayList<>(sales); }
-	public ArrayList<Sale> getSales() { return getSaleList(); }
-	public void setSales(List<Sale> sales) { setSaleList(sales); }
 
 	public int nextTransactionID() {
 		return transactions.size() + 1;
@@ -135,14 +129,6 @@ public class Shop {
 	}
 
 	public void addTransaction(Transaction t) { transactions.add(t); }
-
-	public List<Product> getLowStockProducts() {
-		List<Product> result = new ArrayList<>();
-		for (Product p : productList) {
-			if (p.getCount() <= p.getLowstockthreshold()) result.add(p);
-		}
-		return result;
-	}
 
 	public Client getClientByID(int ID) {
 		for (Client c : clientList) {

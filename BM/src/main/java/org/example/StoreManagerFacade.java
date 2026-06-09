@@ -21,19 +21,15 @@ public class StoreManagerFacade {
 		storeManager.manageReturns();
 	}
 
-	public void browseProducts(ManagerFilter filter) {
-		storeManager.browseProducts(filter);
-	}
-
 	public void deleteAccount(int ID) {
 		storeManager.deleteAccount(ID);
 	}
 
 	public List<Product> getLowStockProducts() {
-		return storeManager.fetchLowStockProducts();
+		return storeManager.getLowStockProducts();
 	}
 
-	public void displayTransactionData(int ID, ManagerFilter filter) {
+	public void displayTransactionData(int ID, Filter filter) {
 		storeManager.displayTransactionData(ID, filter);
 	}
 
@@ -42,10 +38,10 @@ public class StoreManagerFacade {
 	}
 
 	public void browseNotifications() {
-		storeManager.executeBrowseNotifications();
+		Shop.getInstance().getManagersNotificationManager().browseNotifications();
 	}
 
-	public void saveDatabase() {
+	void saveDatabase() {
 		storeManager.saveDatabase();
 	}
 }

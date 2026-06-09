@@ -1,19 +1,20 @@
 package org.example;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     static Scanner in = new Scanner(System.in);
     static String input;
+    static Browser browser;
     static StoreManagerFacade managerFacade;
 
     public static void main(String[] args) {
 
-        NotificationManager nm = new NotificationManager();
-        Browser browser = new Browser();
-        StoreManager manager = new StoreManager(nm, browser);
+        browser = new Browser();
+        StoreManager manager = new StoreManager(browser);
 
         StoreManagerFacade facade = new StoreManagerFacade(manager);
         managerFacade = facade;
@@ -321,7 +322,7 @@ public class Main {
             String line = in.nextLine().toUpperCase().trim();
             switch (line) {
                 case "/FILTERS" -> configureFilter(filter);
-                case "/BROWSE" -> managerFacade.browseProducts(filter);
+                case "/BROWSE" -> browser.browse(filter);
                 case "/CLEAR" -> {
                     filter = new ManagerFilter();
                     System.out.println("Filters reset.");
@@ -367,7 +368,7 @@ public class Main {
             System.out.println("/PRICE_UPPER <amount>");
             System.out.println("/SIZE_MIN <size>");
             System.out.println("/SIZE_MAX <size>");
-            System.out.println("/COLOR <color>");
+            System.out.println("/COLOR <color[,color...]> (ANY/CLEAR resets)");
             System.out.println("/ONSALE - toggle on-sale only");
             System.out.println("/SECONDHAND - toggle second-hand only");
             if (filter instanceof ManagerFilter) {
@@ -390,7 +391,7 @@ public class Main {
                 filter.setUpperBracket(Float.MAX_VALUE);
                 filter.setSmallestSize(0);
                 filter.setBiggestSize(Integer.MAX_VALUE);
-                filter.setAllowedColors(null);
+                filter.clearAllowedColors();
                 filter.setOnSale(false);
                 filter.setDisplaySecondHand(false);
                 if (filter instanceof ManagerFilter mf) {
@@ -471,10 +472,32 @@ public class Main {
                     }
                 }
                 case "/COLOR" -> {
-                    Color c = parseColor(arg.toUpperCase());
-                    if (c != null) {
-                        filter.setAllowedColors(c);
-                        System.out.println("Color set to " + c);
+                    if (arg.equalsIgnoreCase("ANY") || arg.equalsIgnoreCase("CLEAR") || arg.equalsIgnoreCase("NONE")) {
+                        filter.clearAllowedColors();
+                        System.out.println("Color filter cleared.");
+                        continue;
+                    }
+
+                    List<Color> colors = new ArrayList<>();
+                    boolean invalid = false;
+                    for (String token : arg.split(",")) {
+                        String colorText = token.trim();
+                        if (colorText.isEmpty()) {
+                            continue;
+                        }
+                        Color color = parseColor(colorText.toUpperCase());
+                        if (color == null) {
+                            invalid = true;
+                            break;
+                        }
+                        if (!colors.contains(color)) {
+                            colors.add(color);
+                        }
+                    }
+
+                    if (!invalid && !colors.isEmpty()) {
+                        filter.setAllowedColors(colors);
+                        System.out.println("Allowed colors set to: " + String.join(", ", colors.stream().map(Color::name).toList()));
                     } else {
                         System.out.println("Unknown color. Available: CZARNE, BIALE, CZERWONE, ZIELONE, POMARANCZOWE, NIEBIESKIE, FIOLETOWE, BRAZOWE");
                     }
@@ -490,7 +513,10 @@ public class Main {
                 + " - " + (filter.getUpperBracket() < Float.MAX_VALUE ? filter.getUpperBracket() : "any"));
         System.out.println("Size:  " + (filter.getSmallestSize() > 0 ? "from " + filter.getSmallestSize() : "any")
                 + " - " + (filter.getBiggestSize() < Integer.MAX_VALUE ? filter.getBiggestSize() : "any"));
-        System.out.println("Color: " + (filter.getAllowedColors() != null ? filter.getAllowedColors() : "any"));
+        List<Color> allowedColors = filter.getAllowedColors();
+        System.out.println("Color: " + (allowedColors.isEmpty()
+                ? "any"
+                : String.join(", ", allowedColors.stream().map(Color::name).toList())));
         System.out.println("On sale: " + (filter.isOnSale() ? "YES" : "no"));
         System.out.println("Second-hand: " + (filter.isDisplaySecondHand() ? "YES" : "no"));
         if (filter instanceof ManagerFilter mf) {

@@ -21,17 +21,6 @@ public class CartItem {
 		this.count = count;
 	}
 
-	public void adjustToStock(Product product) {
-		if (count > product.getCount()) {
-			count = product.getCount();
-		}
-	}
-
-	public float getWorth(Product product) {
-		adjustToStock(product);
-		return product.getEffectivePrice() * count;
-	}
-
 	public int getProductID() {
 		return productID;
 	}

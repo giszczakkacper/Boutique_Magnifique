@@ -7,42 +7,25 @@ import java.util.List;
 //  @ Project : Untitled
 //  @ File Name : Browser.java
 //  @ Date : 24.05.2026
-//  @ Author : 
+//  @ Author :
 //
 //
-
-
 
 public class Browser {
 	private Filter customFilters;
 	private FilterService filterService = new FilterService();
 
-	public Filter getCustomFilters() {
-		return customFilters;
-	}
-
-	public void setCustomFilters(Filter customFilters) {
-		this.customFilters = customFilters;
-	}
-
-	private List<Product> collectResults(Filter filter) {
+	public List<Product> browse(Filter filter) {
+		customFilters = filter;
 		List<Product> results;
 		if (filter instanceof ManagerFilter mf) {
-			results = filterService.applyManagerFilter(mf);
+			results = filterService.filterManagerProducts(mf);
 		} else if (filter instanceof ClientFilter cf) {
-			results = filterService.applyClientFilter(cf);
+			results = filterService.filterClientProducts(cf);
 		} else {
-			results = filterService.applyFilter(filter);
+			results = filterService.filterProducts(filter);
 		}
-		return results;
-	}
 
-	public List<Product> browse(Filter filter) {
-		return collectResults(filter);
-	}
-
-	public void browseAndDisplay(Filter filter) {
-		List<Product> results = collectResults(filter);
 		if (results.isEmpty()) {
 			System.out.println("No products found.");
 		} else {
@@ -52,9 +35,7 @@ public class Browser {
 			}
 			System.out.println("========================");
 		}
-	}
 
-	public void display(String message) {
-		System.out.println(message);
+		return results;
 	}
 }

@@ -1,4 +1,5 @@
 package org.example;
+
 import java.util.List;
 import java.util.stream.Collectors;
 //
@@ -7,32 +8,32 @@ import java.util.stream.Collectors;
 //  @ Project : Untitled
 //  @ File Name : FilterService.java
 //  @ Date : 24.05.2026
-//  @ Author : 
+//  @ Author :
 //
 //
-
-
 
 public class FilterService {
 
-	public List<Product> applyFilter(Filter f) {
+	List<Product> filterProducts(Filter f) {
+		List<Color> allowedColors = f.getAllowedColors();
+		boolean restrictColors = !allowedColors.isEmpty();
 		return Shop.getInstance().getProductList().stream()
 				.filter(p -> Shop.getInstance().getEffectivePrice(p.getID()) >= f.getLowerBracket())
 				.filter(p -> Shop.getInstance().getEffectivePrice(p.getID()) <= f.getUpperBracket())
 				.filter(p -> p.getSize() >= f.getSmallestSize())
 				.filter(p -> p.getSize() <= f.getBiggestSize())
-				.filter(p -> f.getAllowedColors() == null || f.getAllowedColors() == p.getColor())
+				.filter(p -> !restrictColors || (p.getColor() != null && allowedColors.contains(p.getColor())))
 				.filter(p -> !f.isOnSale() || Shop.getInstance().isProductOnSale(p.getID()))
 				.filter(p -> !f.isDisplaySecondHand() || (p instanceof UsedProduct))
 				.collect(Collectors.toList());
 	}
 
-	public List<Product> applyClientFilter(ClientFilter f) {
-		return applyFilter(f);
+	List<Product> filterClientProducts(ClientFilter f) {
+		return filterProducts(f);
 	}
 
-	public List<Product> applyManagerFilter(ManagerFilter f) {
-		List<Product> results = applyFilter(f);
+	List<Product> filterManagerProducts(ManagerFilter f) {
+		List<Product> results = filterProducts(f);
 		if (f.getLowstockthreshold() > 0) {
 			results = results.stream()
 					.filter(p -> p.getCount() <= f.getLowstockthreshold())
@@ -40,4 +41,5 @@ public class FilterService {
 		}
 		return results;
 	}
+
 }

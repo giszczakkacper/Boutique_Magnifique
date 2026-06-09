@@ -1,20 +1,9 @@
 package org.example;
 
 public class InAppNotificationSender implements INotificationSender {
-	private Client recipient;
-
-	public InAppNotificationSender() {
-	}
+	private final Client recipient;
 
 	public InAppNotificationSender(Client recipient) {
-		this.recipient = recipient;
-	}
-
-	public Client getRecipient() {
-		return recipient;
-	}
-
-	public void setRecipient(Client recipient) {
 		this.recipient = recipient;
 	}
 
@@ -30,7 +19,6 @@ public class InAppNotificationSender implements INotificationSender {
 	}
 
 	public void send(Client recipient, Notification notification) {
-		setRecipient(recipient);
-		send(notification);
+		new InAppNotificationSender(recipient).send(notification);
 	}
 }

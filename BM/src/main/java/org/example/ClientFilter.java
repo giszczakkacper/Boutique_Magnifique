@@ -6,88 +6,9 @@ package org.example;
 //  @ Project : Untitled
 //  @ File Name : ClientFilter.java
 //  @ Date : 24.05.2026
-//  @ Author : 
+//  @ Author :
 //
 //
-
-
 
 public class ClientFilter extends Filter {
-	private transient boolean isOnSale;
-	private transient float lowerBracket = 0f;
-	private transient float upperBracket = Float.MAX_VALUE;
-	private transient boolean displaySecondHand;
-	private transient int smallestSize = 0;
-	private transient int biggestSize = Integer.MAX_VALUE;
-	private transient Color allowedColors;
-
-	@Override
-	public boolean isOnSale() {
-		return isOnSale;
-	}
-
-	@Override
-	public float getLowerBracket() {
-		return lowerBracket;
-	}
-
-	@Override
-	public float getUpperBracket() {
-		return upperBracket;
-	}
-
-	@Override
-	public boolean isDisplaySecondHand() {
-		return displaySecondHand;
-	}
-
-	@Override
-	public int getSmallestSize() {
-		return smallestSize;
-	}
-
-	@Override
-	public int getBiggestSize() {
-		return biggestSize;
-	}
-
-	@Override
-	public Color getAllowedColors() {
-		return allowedColors;
-	}
-
-	@Override
-	public void setOnSale(boolean onSale) {
-		isOnSale = onSale;
-	}
-
-	@Override
-	public void setLowerBracket(float v) {
-		lowerBracket = v;
-	}
-
-	@Override
-	public void setUpperBracket(float v) {
-		upperBracket = v;
-	}
-
-	@Override
-	public void setDisplaySecondHand(boolean v) {
-		displaySecondHand = v;
-	}
-
-	@Override
-	public void setSmallestSize(int v) {
-		smallestSize = v;
-	}
-
-	@Override
-	public void setBiggestSize(int v) {
-		biggestSize = v;
-	}
-
-	@Override
-	public void setAllowedColors(Color c) {
-		allowedColors = c;
-	}
 }

@@ -5,9 +5,12 @@ package org.example;//
 //  @ Project : Untitled
 //  @ File Name : Filter.java
 //  @ Date : 24.05.2026
-//  @ Author : 
+//  @ Author :
+//
 //
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Filter {
 	private boolean isOnSale;
@@ -16,7 +19,7 @@ public class Filter {
 	private boolean displaySecondHand;
 	private int smallestSize = 0;
 	private int biggestSize = Integer.MAX_VALUE;
-	private Color allowedColors;
+	private List<Color> allowedColors = new ArrayList<>();
 
 	public boolean isOnSale() { return isOnSale; }
 	public float getLowerBracket() { return lowerBracket; }
@@ -24,7 +27,10 @@ public class Filter {
 	public boolean isDisplaySecondHand() { return displaySecondHand; }
 	public int getSmallestSize() { return smallestSize; }
 	public int getBiggestSize() { return biggestSize; }
-	public Color getAllowedColors() { return allowedColors; }
+
+	public List<Color> getAllowedColors() {
+		return new ArrayList<>(allowedColors);
+	}
 
 	public void setOnSale(boolean onSale) { isOnSale = onSale; }
 	public void setLowerBracket(float v) { lowerBracket = v; }
@@ -32,5 +38,16 @@ public class Filter {
 	public void setDisplaySecondHand(boolean v) { displaySecondHand = v; }
 	public void setSmallestSize(int v) { smallestSize = v; }
 	public void setBiggestSize(int v) { biggestSize = v; }
-	public void setAllowedColors(Color c) { allowedColors = c; }
+
+	public void setAllowedColors(List<Color> colors) {
+		if (colors == null) {
+			allowedColors = new ArrayList<>();
+			return;
+		}
+		allowedColors = new ArrayList<>(colors);
+	}
+
+	public void clearAllowedColors() {
+		allowedColors.clear();
+	}
 }
